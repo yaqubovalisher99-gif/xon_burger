@@ -133,11 +133,6 @@ async def show_products(callback: types.CallbackQuery):
             text=f"{name} - {price} so‘m",
             reply_markup=kb
         )
-
-   await callback.message.answer(
-    text=f"{name} - {price} so‘m",
-    reply_markup=kb
-)
 # ================= ADD =================
 @dp.callback_query(F.data.startswith("add_"))
 async def add(callback: types.CallbackQuery):
