@@ -113,6 +113,8 @@ BASE_DIR = Path(__file__).resolve().parent
 
 @dp.callback_query(F.data.startswith("cat_"))
 async def show_products(callback: types.CallbackQuery):
+    await callback.answer()
+
     cat = callback.data.split("_")[1]
 
     for i, (name, price, img) in enumerate(products[cat]):
