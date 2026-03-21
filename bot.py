@@ -30,7 +30,7 @@ cart = {}
 # ================= PRODUCTS =================
 products = {
     "burger": [
-        ("🍔 Xan Burger", 45000, "images/xan_burger.jpg"),
+        ("🍔 Xan Burger", 45000, "https://t4.ftcdn.net/jpg/05/85/29/13/360_F_585291338_0J8Q8vYbKDCu8yqqwAO8PsQZ4ESP2zd8.jpg"),
         ("🍔 Black Burger", 40000, "images/black_burger.png"),
         ("🍔 Cheeseburger", 35000, "images/cheese_burger.png"),
         ("🍔 Gamburger", 16000, "images/gamburger.jpg"),
@@ -129,10 +129,11 @@ async def show_products(callback: types.CallbackQuery):
             ]
         )
 
-        await callback.message.answer(
-            text=f"{name} - {price} so‘m",
-            reply_markup=kb
-        )
+        await callback.message.answer_photo(
+    photo=img,
+    caption=f"{name} - {price} so‘m",
+    reply_markup=kb
+)
 # ================= ADD =================
 @dp.callback_query(F.data.startswith("add_"))
 async def add(callback: types.CallbackQuery):
