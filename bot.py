@@ -118,7 +118,7 @@ async def show_products(callback: types.CallbackQuery):
     cat = callback.data.split("_")[1]
 
     for i, (name, price, img) in enumerate(products[cat]):
-        photo = FSInputFile(BASE_DIR / img)
+        photo = FSInputFile(str(BASE_DIR / img))
 
         kb = InlineKeyboardMarkup(inline_keyboard=[
             [InlineKeyboardButton(
