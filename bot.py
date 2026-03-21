@@ -118,12 +118,16 @@ async def show_products(callback: types.CallbackQuery):
     cat = callback.data.split("_")[1]
 
     for i, (name, price, img) in enumerate(products[cat]):
-        kb = InlineKeyboardMarkup(inline_keyboard=[
-            [InlineKeyboardButton(
-                text="🛒 Qo‘shish",
-                callback_data=f"add_{cat}_{i}"
-            )]
-        ])
+        kb = InlineKeyboardMarkup(
+            inline_keyboard=[
+                [
+                    InlineKeyboardButton(
+                        text="🛒 Qo‘shish",
+                        callback_data=f"add_{cat}_{i}"
+                    )
+                ]
+            ]
+        )
 
         await callback.message.answer(
             text=f"{name} - {price} so‘m",
