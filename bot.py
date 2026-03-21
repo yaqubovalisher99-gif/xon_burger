@@ -31,22 +31,22 @@ cart = {}
 products = {
     "burger": [
         ("🍔 Xan Burger", 45000, "https://t4.ftcdn.net/jpg/05/85/29/13/360_F_585291338_0J8Q8vYbKDCu8yqqwAO8PsQZ4ESP2zd8.jpg"),
-        ("🍔 Black Burger", 40000, "images/black_burger.png"),
-        ("🍔 Cheeseburger", 35000, "images/cheese_burger.png"),
-        ("🍔 Gamburger", 16000, "images/gamburger.jpg"),
+        ("🍔 Black Burger", 40000, "https://static.vecteezy.com/system/resources/thumbnails/056/438/079/small/high-quality-transparent-background-black-burger-image-for-branding-and-ads-png.png"),
+        ("🍔 Cheeseburger", 35000, "https://images.themodernproper.com/production/posts/2016/ClassicCheeseBurger_9.jpg?w=960&h=960&q=82&fm=jpg&fit=crop&dm=1749310239&s=603ff206b8a47f03f208a894e0667621"),
+        ("🍔 Gamburger", 16000, "https://avatars.mds.yandex.net/get-altay/6302373/2a0000017f278e3c10194a4c570c1f43b17e/L_height"),
     ],
     "lavash": [
-        ("🌯 Lavash", 35000, "images/lavash.jpg"),
-        ("🌯 Lavash 2x", 50000, "images/lavash_2x.jpg"),
-        ("🧀 Lavash sir", 40000, "images/sirli_lavash.jpg"),
-        ("🌶 Lavash o‘tkir", 38000, "images/achchi_lavash.png"),
-        ("🌯 Donar", 50000, "images/donar.jpg"),
-        ("🌯 Haggi", 40000, "images/haggi.jpg"),
+        ("🌯 Lavash", 35000, "https://avatars.mds.yandex.net/get-altay/5098810/2a00000182009c9f9161f1d17565bd553ae2/L_height"),
+        ("🌯 Lavash 2x", 50000, "https://cdn.foodpicasso.com/assets/07/9b/39/f4/079b39f4a3a42da172fe111fd5233473---png_1000x_103c0_convert.png"),
+        ("🧀 Lavash sir", 40000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3RkSYUINIJlIEYWgUoYgCxByWap73QZc2-A&s"),
+        ("🌶 Lavash o‘tkir", 38000, "https://cdn.delever.uz/delever/16f04863-7c42-467d-bf78-2c53db5385f0"),
+        ("🌯 Donar", 50000, "https://ce6e1bcc-e329-4500-b965-54d06a22bcc8.selstorage.ru/4538923/93351e97-58c2-4053-9759-bd0837e243e2.jpg"),
+        ("🌯 Haggi", 40000, "https://www.restoran-shafran.uz/image/cache/catalog/product/haggi-2-750x500.jpg"),
     ],
     "drink": [
-        ("🥤 Cola 0.5L", 8000, "images/cola_05.png"),
-        ("🥤 Cola 1L", 12000, "images/cola_1l.png"),
-        ("🥤 Fanta", 10000, "images/fanta_1l.png"),
+        ("🥤 Cola 0.5L", 8000, "https://positano.lv/wp-content/uploads/2019/03/cola-zero-0.5-new.png"),
+        ("🥤 Cola 1L", 12000, "https://www.freeiconspng.com/uploads/coca-cola-bottle-png--1.png"),
+        ("🥤 Fanta", 10000, "https://yastatic.net/avatars/get-grocery-goods/2888787/cb6e0aca-7b69-4689-87fa-0790760892f8/500x500-orig"),
     ]
 }
 
