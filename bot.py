@@ -121,12 +121,12 @@ async def get_location(message: types.Message, state: FSMContext):
 # ================= CATEGORY =================
 @dp.message(F.text == "🍔 Buyurtma berish")
 async def category(message: types.Message):
-kb = InlineKeyboardMarkup(inline_keyboard=[
-    [InlineKeyboardButton(text="🍔 Burger", callback_data="cat_burger")],
-    [InlineKeyboardButton(text="🌯 Lavash", callback_data="cat_lavash")],
-    [InlineKeyboardButton(text="🥤 Ichimlik", callback_data="cat_drink")],
-    [InlineKeyboardButton(text="🔥 Setlarimiz", callback_data="cat_Setlarimiz")]
-])
+    kb = InlineKeyboardMarkup(inline_keyboard=[
+        [InlineKeyboardButton(text="🍔 Burger", callback_data="cat_burger")],
+        [InlineKeyboardButton(text="🌯 Lavash", callback_data="cat_lavash")],
+        [InlineKeyboardButton(text="🥤 Ichimlik", callback_data="cat_drink")],
+        [InlineKeyboardButton(text="🔥 Setlarimiz", callback_data="cat_Setlarimiz")]
+    ])
     await message.answer("Kategoriya tanlang:", reply_markup=kb)
 
 # ================= PRODUCTS =================
