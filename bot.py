@@ -30,8 +30,8 @@ cart = {}
 # ================= PRODUCTS =================
 products = {
     "burger": [
-        ("🍔 Kartoshka Fri", 15000, "https://tiktak-delivery.ru/img/dish/LjNSL6Y1ZkEC3B2k.jpg?mark=%2Fhome%2Ftiktak%2Fhtdocs%2Fpublic%2Fassets%2Findex%2Fimages%2Fwater-mark-2.png&s=235f279c3ce2e184a6dfbd3a3f049417"),
-        ("🍔 SHashlik", 15000, "https://uzbekistan.travel/storage/app/media/Yuliya/Shashlik/cropped-images/gizhduanskiy-shashlyk-62-0-0-0-0-1603857586.jpg"),
+        ("🍔 Kartoshka Fri", 15000, "https://www.freepik.com/premium-ai-image/png-fried-fries-food-white-background_413510552.htm#fromView=search&page=1&position=13&uuid=8f49a133-1f60-4756-889a-91d99fc94cc3&query=kartoshka+fri"),
+        ("🍔 SHashlik", 15000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgdJo0D3hL0Ln_Hbdddx4oid5vgmn15UkYuQ&s"),
         ("🍔 Naggetsi", 80000, "https://avatars.mds.yandex.net/get-vertis-journal/4465444/b17e81fc-17c7-4ff9-b0b6-03566710b1aa.jpg/1600x1600"),
         ("🍔 Xan Burger", 40000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW0TN2RswEQWCH7Tm0BoNyXkhJ-fJshQ7BDw&s"),
         ("🍔 Ufo Burger", 35000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcjc5C-J7nn3Fmg3hNMgfGAhFvFqZaR6upmQ&s"),
@@ -60,14 +60,14 @@ products = {
         ("🥤 Cola 1L", 12000, "https://www.freeiconspng.com/uploads/coca-cola-bottle-png--1.png"),
         ("🥤 Fanta", 12000, "https://yastatic.net/avatars/get-grocery-goods/2888787/cb6e0aca-7b69-4689-87fa-0790760892f8/500x500-orig"),
         ("🥤 Moxito", 20000, "https://img.freepik.com/free-photo/traditional-mojito-with-ice-mint-table_140725-867.jpg?semt=ais_hybrid&w=740&q=80"),
-        ("🥤 Kakteyl Banan", 20000, "https://yastatic.net/avatars/get-grocery-goods/2888787/cb6e0aca-7b69-4689-87fa-0790760892f8/500x500-orig"),
-        ("🥤 Kakteyl Qulupnay", 20000, "https://chatgpt.com/backend-api/estuary/content?id=file_0000000026b071fd850717ad91e51e24&ts=492881&p=fs&cid=1&sig=5e6d5cffff6f32de044b9cffc2ba9816beca8bc47b0ac5766e9e23e56d1364fe&v=0"),
-        ("🥤 Kakteyl Kiwi", 20000, "https://chatgpt.com/backend-api/estuary/content?id=file_00000000ebc071fdb1af3e55feb63a05&ts=492881&p=fs&cid=1&sig=b55b6ebd33e868ef109084fbaadfb43cd4488a91985022eb3762816da19e7b85&v=0"),
+        ("🥤 Kakteyl Banan", 20000, "https://chocolatebakery.uz/_next/image?url=https%3A%2F%2Fcdn.chocolatebakery.uz%2Fproducts%2F1_1763474393.webp&w=1080&q=75"),
+        ("🥤 Kakteyl Qulupnay", 20000, "https://i.ytimg.com/vi/mF407VbLALk/maxresdefault.jpg"),
+        ("🥤 Kakteyl Kiwi", 20000, "https://img.freepik.com/free-photo/healthy-kiwi-smoothie-summer-recipe_53876-30503.jpg?semt=ais_hybrid&w=740&q=80"),
     ],
     "Setlarimiz":[
-        ("🍔 1 Setimiz 2ta burger 1 kola kartoshka fri 2ta sous", 99000, "https://chatgpt.com/backend-api/estuary/content?id=file_000000000e3471fd84889042b515c318&ts=492881&p=fs&cid=1&sig=cdb87320eb9ba114ab71ae552e6e95d7f916f187a2a208ccc781dc1274ea542b&v=0"),
-        ("🍔 2 Setimiz 2ta lavash 1 kola kartoshka fri 2ta sous", 99000, "https://www.instagram.com/reel/DU-JYr9iGkS/"),
-        ("🍔 3 Setimiz 1kg steyk 4ta shashlik 2/4 katlet kartoshka fri  4ta sous 1cola non", 250000, "https://chatgpt.com/backend-api/estuary/content?id=file_000000000d4871fda72f1f4d66105bc2&ts=492881&p=fs&cid=1&sig=60878cefa37d68996e965f5f65ee0d16c0b3aba0ed2551f924411177ab3b5e01&v=0"),    
+        ("🍔 1 Setimiz 2ta burger 1 kola kartoshka fri 2ta sous", 99000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8dIaRZ81tJdwhx5V_L4X3Wu4fqa2XNsDSWw&s"),
+        ("🍔 2 Setimiz 2ta lavash 1 kola kartoshka fri 2ta sous", 99000, "https://avatars.mds.yandex.net/get-sprav-products/1530321/2d9dcc3c545b07c29dc2dee8269c4a60/M_height"),
+        ("🍔 3 Setimiz 1kg steyk 4ta shashlik 2/4 katlet kartoshka fri  4ta sous 1cola non", 250000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShvFY2cauh2N86oLqnzjHp74SlbidQaT9JBQ&s"),    
     ]
 }
 
@@ -136,7 +136,6 @@ BASE_DIR = Path(__file__).resolve().parent
 @dp.callback_query(F.data.startswith("cat_"))
 async def show_products(callback: types.CallbackQuery):
     await callback.answer()
-
     cat = callback.data.split("_")[1]
 
     for i, (name, price, img) in enumerate(products[cat]):
@@ -152,10 +151,10 @@ async def show_products(callback: types.CallbackQuery):
         )
 
         await callback.message.answer_photo(
-    photo=img,
-    caption=f"{name} - {price} so‘m",
-    reply_markup=kb
-)
+            photo=img,
+            caption=f"{name} - {price} so‘m",
+            reply_markup=kb
+        )
 # ================= ADD =================
 @dp.callback_query(F.data.startswith("add_"))
 async def add(callback: types.CallbackQuery):
