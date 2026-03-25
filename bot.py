@@ -195,8 +195,15 @@ async def show_cart(message: types.Message):
 # ================= ORDER =================
 @dp.callback_query(F.data == "order")
 async def send_order(callback: types.CallbackQuery):
+    await callback.answer()
+
     user_id = callback.from_user.id
     user = users.get(user_id)
+
+    if not user:
+        await callback.message.answer("❌ Avval /start bosing")
+        return
+
     items = cart.get(user_id, [])
 
     text = f"📦 Yangi buyurtma\n\n👤 {user['name']}\n📞 {user['phone']}\n\n"
@@ -210,11 +217,11 @@ async def send_order(callback: types.CallbackQuery):
 
     await bot.send_message(ADMIN_ID, text)
 
-    # 📍 lokatsiya yuborish
     loc = user['location']
     await bot.send_location(ADMIN_ID, latitude=loc.latitude, longitude=loc.longitude)
 
     cart[user_id] = []
+
     await callback.message.answer("✅ Buyurtma yuborildi!")
 
 # ================= RUN =================
