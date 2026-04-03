@@ -1,19 +1,16 @@
 import asyncio
-from pathlib import Path
-
-BASE_DIR = Path(__file__).resolve().parent
 from aiogram import Bot, Dispatcher, types, F
-from aiogram.filters import CommandStart
 from aiogram.types import (
     ReplyKeyboardMarkup, KeyboardButton,
-    InlineKeyboardMarkup, InlineKeyboardButton, FSInputFile
+    InlineKeyboardMarkup, InlineKeyboardButton
 )
+from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 
-TOKEN = "8046143748:AAFXa822qHNKrJVs-LIVarwA0XQTaLLhn9w"
-ADMIN_ID = 5825744781
+TOKEN = "TOKENINGNI_QO'Y"
+ADMIN_ID = 123456789
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
@@ -29,46 +26,54 @@ cart = {}
 
 # ================= PRODUCTS =================
 products = {
-    "burger": [
-        ("🍔 Kartoshka Fri", 15000, "https://www.freepik.com/premium-ai-image/png-fried-fries-food-white-background_413510552.htm#fromView=search&page=1&position=13&uuid=8f49a133-1f60-4756-889a-91d99fc94cc3&query=kartoshka+fri"),
-        ("🍔 SHashlik", 15000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgdJo0D3hL0Ln_Hbdddx4oid5vgmn15UkYuQ&s"),
-        ("🍔 Naggetsi", 80000, "https://avatars.mds.yandex.net/get-vertis-journal/4465444/b17e81fc-17c7-4ff9-b0b6-03566710b1aa.jpg/1600x1600"),
-        ("🍔 Xan Burger", 40000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW0TN2RswEQWCH7Tm0BoNyXkhJ-fJshQ7BDw&s"),
-        ("🍔 Ufo Burger", 35000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcjc5C-J7nn3Fmg3hNMgfGAhFvFqZaR6upmQ&s"),
-        ("🍔 Cheeseburger", 35000, "https://www.sargento.com/assets/Uploads/Recipe/Image/burger_0__FocusFillWyIwLjAwIiwiMC4wMCIsODAwLDQ3OF0_CompressedW10.jpg"),
-        ("🍔 Non Kabob", 35000, "https://w7.pngwing.com/pngs/106/531/png-transparent-doner-kebab-hamburger-zapiekanka-restaurant-meat-food-beef-recipe-thumbnail.png"), 
-        ("🍔 Gamburger", 15000, "https://www.instagram.com/reel/DU2bTLzjAML/"),
-        ("🍔 Patira Gamburger", 35000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPmYJqjjF7E-B-hLJdyG1ub3SwavU7-8htLWXBEquT0pjkfi_o"),
-        ("🍔 Xot Dog", 18000, "https://i.ytimg.com/vi/WdBswbdm1Yo/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLA4hW1Evt0plB3c7pdGUNOBMM7ITg"),
-        ("🍔 Xot Dog Dvaynoy", 20000, "https://media.ovkuse.ru/images/recipes/333ace94-b781-4cb9-893e-c2aa44f9544f/333ace94-b781-4cb9-893e-c2aa44f9544f_420_420.webp"),
-        ("🍔 Xot Dog Qatlet", 25000, "https://i.ytimg.com/vi/clXywwZ6SmM/maxresdefault.jpg"),
-        ("🍔 Xot Dog Go'sht", 25000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIKISvW1AbvcPXMxd5ms9coWX_0B4itLIEuA&s"),
+    "baliq": [
+        ("Kovirilgan baliq", 90000, "https://i.ytimg.com/vi/PO_t_lASSVA/maxresdefault.jpg"),
+        ("Faliga baliq", 90000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+        ("Setka baliq", 90000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
     ],
-    "lavash": [
-        ("🌯 Pite Lavash", 35000, "https://i.ytimg.com/vi/coGxjpPgF0M/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCcXa4xgC6ES_RxVuczDrery0QoEw"),
-        ("🌯 Lavash", 35000, "https://data.daryo.uz/media/cache/2020/05/Lavash-1000x667.jpg"),
-        ("🌯 Patir Lavash", 35000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTFEjOFvSmjhhuUKtFrlpGZft-gaC3B4zEWJQ&s"),
-        ("🌯 Lavash Dvaynoy", 45000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOnzEjuZXRA1xkSYNbxbRXrgF8wPtm2f_kLg&s"),
-        ("🧀 Lavash sir", 35000, "https://maxway.uz/_next/image?url=https%3A%2F%2Fcdn.delever.uz%2Fdelever%2F174ded8b-61f0-4e75-91fb-e9639332b80a&w=3840&q=75"),
-        ("🌶 Lavash o‘tkir", 35000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfP48wCGSwSKij0RH-owZ0xZJ-Btl49wFzJw&s"),
-        ("🌯 Donar", 40000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzw3nmA8AxjraTSjtE02b9hKR8ZGrf7Asgfg&s"),
-        ("🌯 Haggi", 35000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNLb5Vf1QphJUx0IozziUtuCaxGSBPrK7X8w&s"),
-        ("🍔 Somsa", 15000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-Ie-JpMEhbJ_snmq_PsMHdnLIxtYGjEtn0g&s"),
+    "issiq": [
+        ("Bogir", 180000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+        ("Bogir piyozli", 200000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+        ("Ribay steyk", 60000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
     ],
-    "drink": [
-        ("🥤 Cola 0.5L", 8000, "https://positano.lv/wp-content/uploads/2019/03/cola-zero-0.5-new.png"),
-        ("🥤 Cola 1L", 12000, "https://www.freeiconspng.com/uploads/coca-cola-bottle-png--1.png"),
-        ("🥤 Fanta", 12000, "https://yastatic.net/avatars/get-grocery-goods/2888787/cb6e0aca-7b69-4689-87fa-0790760892f8/500x500-orig"),
-        ("🥤 Moxito", 20000, "https://img.freepik.com/free-photo/traditional-mojito-with-ice-mint-table_140725-867.jpg?semt=ais_hybrid&w=740&q=80"),
-        ("🥤 Kakteyl Banan", 20000, "https://chocolatebakery.uz/_next/image?url=https%3A%2F%2Fcdn.chocolatebakery.uz%2Fproducts%2F1_1763474393.webp&w=1080&q=75"),
-        ("🥤 Kakteyl Qulupnay", 20000, "https://i.ytimg.com/vi/mF407VbLALk/maxresdefault.jpg"),
-        ("🥤 Kakteyl Kiwi", 20000, "https://img.freepik.com/free-photo/healthy-kiwi-smoothie-summer-recipe_53876-30503.jpg?semt=ais_hybrid&w=740&q=80"),
+    "mangal": [
+        ("Gijduvon", 17000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+        ("Kuskavoy shashlik", 24000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
     ],
-    "Setlarimiz":[
-        ("🍔 1 Setimiz 2ta burger 1 kola kartoshka fri 2ta sous", 99000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8dIaRZ81tJdwhx5V_L4X3Wu4fqa2XNsDSWw&s"),
-        ("🍔 2 Setimiz 2ta lavash 1 kola kartoshka fri 2ta sous", 99000, "https://avatars.mds.yandex.net/get-sprav-products/1530321/2d9dcc3c545b07c29dc2dee8269c4a60/M_height"),
-        ("🍔 3 Setimiz 1kg steyk 4ta shashlik 2/4 katlet kartoshka fri  4ta sous 1cola non", 250000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShvFY2cauh2N86oLqnzjHp74SlbidQaT9JBQ&s"),    
-    ]
+    "xamir": [
+        ("Gumma", 12000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+        ("Tandir somsa", 12000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+    ],
+    "suyuq": [
+        ("Mastava", 35000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+        ("Tovuq sho'rva", 20000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+    ],
+    "ichimlik": [
+        ("Kola 1.5L", 17000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+        ("Fanta", 17000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+    ],
+    "araq": [
+        ("Aroq 100gr", 10000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+        ("Vino", 55000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg0"),
+    ],
+    "kaynak": [
+        ("Uzbekistan 0.5L", 80000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+    ],
+    "pivo": [
+        ("Tuborg", 17000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+    ],
+    "energetik": [
+        ("Red Bull", 26000, "https://via.placeholder.com/300"),
+    ],
+    "podzakaz": [
+        ("Manti", 15000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+    ],
+    "sheyx": [
+        ("Sheyx joja", 60000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+    ],
+    "garnir": [
+        ("Kartoshka fri", 10000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
+    ],
 }
 
 # ================= MENU =================
@@ -84,88 +89,79 @@ def main_menu():
 # ================= START =================
 @dp.message(CommandStart())
 async def start(message: types.Message, state: FSMContext):
-    await message.answer("👤 Ismingizni kiriting:")
+    await message.answer("Ismingizni kiriting:")
     await state.set_state(Register.name)
 
 @dp.message(Register.name)
 async def get_name(message: types.Message, state: FSMContext):
     users[message.from_user.id] = {"name": message.text}
-
     kb = ReplyKeyboardMarkup(
         keyboard=[[KeyboardButton(text="📞 Raqam yuborish", request_contact=True)]],
         resize_keyboard=True
     )
-
-    await message.answer("📞 Telefon yuboring:", reply_markup=kb)
+    await message.answer("Telefon yuboring:", reply_markup=kb)
     await state.set_state(Register.phone)
 
 @dp.message(Register.phone)
 async def get_phone(message: types.Message, state: FSMContext):
     users[message.from_user.id]["phone"] = message.contact.phone_number
-
     kb = ReplyKeyboardMarkup(
         keyboard=[[KeyboardButton(text="📍 Lokatsiya", request_location=True)]],
         resize_keyboard=True
     )
-
-    await message.answer("📍 Lokatsiya yuboring:", reply_markup=kb)
+    await message.answer("Lokatsiya yuboring:", reply_markup=kb)
     await state.set_state(Register.location)
 
 @dp.message(Register.location)
 async def get_location(message: types.Message, state: FSMContext):
     users[message.from_user.id]["location"] = message.location
-
-    await message.answer("✅ Ro‘yxatdan o‘tdingiz!", reply_markup=main_menu())
+    await message.answer("Ro‘yxatdan o‘tdingiz!", reply_markup=main_menu())
     await state.clear()
 
 # ================= CATEGORY =================
 @dp.message(F.text == "🍔 Buyurtma berish")
 async def category(message: types.Message):
     kb = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🍔 Burger", callback_data="cat_burger")],
-        [InlineKeyboardButton(text="🌯 Lavash", callback_data="cat_lavash")],
-        [InlineKeyboardButton(text="🥤 Ichimlik", callback_data="cat_drink")],
-        [InlineKeyboardButton(text="🔥 Setlarimiz", callback_data="cat_Setlarimiz")]
+        [InlineKeyboardButton(text="🐟 Baliq", callback_data="cat_baliq")],
+        [InlineKeyboardButton(text="🍖 Issiq", callback_data="cat_issiq")],
+        [InlineKeyboardButton(text="🔥 Mangal", callback_data="cat_mangal")],
+        [InlineKeyboardButton(text="🥟 Xamir", callback_data="cat_xamir")],
+        [InlineKeyboardButton(text="🍲 Suyuq", callback_data="cat_suyuq")],
+        [InlineKeyboardButton(text="🥤 Ichimlik", callback_data="cat_ichimlik")],
+        [InlineKeyboardButton(text="🍷 Aroq", callback_data="cat_araq")],
+        [InlineKeyboardButton(text="🥃 Kaynak", callback_data="cat_kaynak")],
+        [InlineKeyboardButton(text="🍺 Pivo", callback_data="cat_pivo")],
+        [InlineKeyboardButton(text="⚡ Energetik", callback_data="cat_energetik")],
+        [InlineKeyboardButton(text="📦 Pod zakaz", callback_data="cat_podzakaz")],
+        [InlineKeyboardButton(text="👑 Sheyx", callback_data="cat_sheyx")],
+        [InlineKeyboardButton(text="🍟 Garnir", callback_data="cat_garnir")],
     ])
     await message.answer("Kategoriya tanlang:", reply_markup=kb)
 
 # ================= PRODUCTS =================
-from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent
-
 @dp.callback_query(F.data.startswith("cat_"))
 async def show_products(callback: types.CallbackQuery):
-    await callback.answer()
     cat = callback.data.split("_")[1]
-
     for i, (name, price, img) in enumerate(products[cat]):
         kb = InlineKeyboardMarkup(
             inline_keyboard=[
-                [
-                    InlineKeyboardButton(
-                        text="🛒 Qo‘shish",
-                        callback_data=f"add_{cat}_{i}"
-                    )
-                ]
+                [InlineKeyboardButton(text="🛒 Qo‘shish", callback_data=f"add_{cat}_{i}")]
             ]
         )
-
         await callback.message.answer_photo(
             photo=img,
             caption=f"{name} - {price} so‘m",
             reply_markup=kb
         )
+
 # ================= ADD =================
 @dp.callback_query(F.data.startswith("add_"))
 async def add(callback: types.CallbackQuery):
     user_id = callback.from_user.id
     _, cat, i = callback.data.split("_")
-
     item = products[cat][int(i)]
-
     cart.setdefault(user_id, []).append(item)
-
-    await callback.answer("Savatchaga qo‘shildi ✅")
+    await callback.answer("Qo‘shildi ✅")
 
 # ================= CART =================
 @dp.message(F.text == "🛒 Savatcha")
@@ -181,10 +177,10 @@ async def show_cart(message: types.Message):
     total = 0
 
     for name, price, _ in items:
-        text += f"{name} - {price} so‘m\n"
+        text += f"{name} - {price}\n"
         total += price
 
-    text += f"\n💰 Jami: {total}"
+    text += f"\n💰 Jami: {total}\n\nNon, choy, sous bilan yetkazamiz 😎"
 
     kb = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="📦 Buyurtma berish", callback_data="order")]
@@ -195,34 +191,31 @@ async def show_cart(message: types.Message):
 # ================= ORDER =================
 @dp.callback_query(F.data == "order")
 async def send_order(callback: types.CallbackQuery):
-    await callback.answer()
-
     user_id = callback.from_user.id
     user = users.get(user_id)
-
-    if not user:
-        await callback.message.answer("❌ Avval /start bosing")
-        return
-
     items = cart.get(user_id, [])
 
-    text = f"📦 Yangi buyurtma\n\n👤 {user['name']}\n📞 {user['phone']}\n\n"
+    if not items:
+        await callback.answer("Savatcha bo‘sh ❌")
+        return
+
+    text = f"Yangi buyurtma\n\n{user['name']}\n{user['phone']}\n\n"
 
     total = 0
     for name, price, _ in items:
         text += f"{name} - {price}\n"
         total += price
 
-    text += f"\n💰 Jami: {total}"
+    text += f"\nJami: {total}"
 
     await bot.send_message(ADMIN_ID, text)
 
     loc = user['location']
-    await bot.send_location(ADMIN_ID, latitude=loc.latitude, longitude=loc.longitude)
+    await bot.send_location(ADMIN_ID, loc.latitude, loc.longitude)
 
     cart[user_id] = []
 
-    await callback.message.answer("✅ Buyurtma yuborildi!")
+    await callback.message.answer("Buyurtma yuborildi ✅")
 
 # ================= RUN =================
 async def main():
