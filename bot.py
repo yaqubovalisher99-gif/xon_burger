@@ -242,19 +242,19 @@ async def get_location(message: types.Message, state: FSMContext):
 @dp.message(F.text == "🍔 Buyurtma berish")
 async def category(message: types.Message):
     kb = InlineKeyboardMarkup(inline_keyboard=[
-        [InlineKeyboardButton(text="🐟 Baliq", callback_data="cat_baliq")],
-        [InlineKeyboardButton(text="🍖 Issiq", callback_data="cat_issiq")],
-        [InlineKeyboardButton(text="🔥 Mangal", callback_data="cat_mangal")],
-        [InlineKeyboardButton(text="🥟 Xamir", callback_data="cat_xamir")],
-        [InlineKeyboardButton(text="🍲 Suyuq", callback_data="cat_suyuq")],
-       InlineKeyboardButton(text="🥤 Ichimlik", callback_data="cat:ichimlik")],
-        [InlineKeyboardButton(text="🍷 Aroq", callback_data="cat_aroq")],
-        [InlineKeyboardButton(text="🥃 Kaynak", callback_data="cat_kaynak")],
-        [InlineKeyboardButton(text="🍺 Pivo", callback_data="cat_pivo")],
-        [InlineKeyboardButton(text="⚡ Energetik", callback_data="cat_energetik")],
-        [InlineKeyboardButton(text="📦 Pod zakaz", callback_data="cat_podzakaz")],
-        [InlineKeyboardButton(text="👑 Sheyx", callback_data="cat_sheyx")],
-        [InlineKeyboardButton(text="🍟 Garnir", callback_data="cat_garnir")],
+        [InlineKeyboardButton(text="🐟 Baliq", callback_data="cat:baliq")],
+        [InlineKeyboardButton(text="🍖 Issiq", callback_data="cat:issiq")],
+        [InlineKeyboardButton(text="🔥 Mangal", callback_data="cat:mangal")],
+        [InlineKeyboardButton(text="🥟 Xamir", callback_data="cat:xamir")],
+        [InlineKeyboardButton(text="🍲 Suyuq", callback_data="cat:suyuq")],
+        [InlineKeyboardButton(text="🥤 Ichimlik", callback_data="cat:ichimlik")],
+        [InlineKeyboardButton(text="🍷 Aroq", callback_data="cat:aroq")],
+        [InlineKeyboardButton(text="🥃 Kaynak", callback_data="cat:kaynak")],
+        [InlineKeyboardButton(text="🍺 Pivo", callback_data="cat:pivo")],
+        [InlineKeyboardButton(text="⚡ Energetik", callback_data="cat:energetik")],
+        [InlineKeyboardButton(text="📦 Pod zakaz", callback_data="cat:podzakaz")],
+        [InlineKeyboardButton(text="👑 Sheyx", callback_data="cat:sheyx")],
+        [InlineKeyboardButton(text="🍟 Garnir", callback_data="cat:garnir")],
     ])
     await message.answer("👇 Tanlang:", reply_markup=kb)
 # ================= PRODUCTS =================
