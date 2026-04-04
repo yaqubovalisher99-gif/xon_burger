@@ -8,31 +8,24 @@ from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
-
-TOKEN = "TOKENINGNI_QOY"
-ADMIN_ID = 123456789
-
+TOKEN = "7846933035:AAFNOW_BXt2oaVVDnE3yf1TqlAkXVxt6KJ0"
+ADMIN_ID = 5825744781
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
-
 # ================= STATE =================
 class Register(StatesGroup):
     name = State()
     phone = State()
     location = State()
-
 users = {}
 cart = {}
-
 # ================= PRODUCTS =================
 products = {
-
 "baliq": [
 ("Kovirilgan baliq", 90000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ14nKgXtK6q6C_kKe70-1bVBO7-vCMEiaegA&s"),
 ("Faliga baliq", 90000, "https://zira.uz/wp-content/uploads/2020/01/ryba-v-folge.jpg"),
 ("Setka baliq", 90000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYP0XjPIambMEX9SqrfS2c9dYN_xcqAvnuCQ&s"),
 ],
-
 "issiq": [
 ("Bog'ir", 180000, "https://i.ytimg.com/vi/_hIWWd6zIaQ/maxresdefault.jpg"),
 ("Bog'ir piyozli", 200000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkS-bRQ1L10I5hqJjPk4NsL2y154u2MZ7_3Q&s"),
@@ -66,7 +59,6 @@ products = {
 ("Qo'y lapatka", 220000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMPrvBTt8hWC0xXQ0VOGhlyG7r706_p5m0nQ&s"),
 ("Sirniy katlet", 40000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ZXczcyz8YPAnMGGOWdPO3cwQe55aF0k_WQ&s"),
 ],
-
 "mangal": [
 ("G'ijduvon", 17000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzpat8jMGKafN9ogtkwd4rlZn0ZCTc0wKzgw&s"),
 ("G'ijduvon katta", 25000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzpat8jMGKafN9ogtkwd4rlZn0ZCTc0wKzgw&s"),
@@ -102,7 +94,6 @@ products = {
 ("Kuskavoy pomidor", 25000, "https://oziqovqat.uz/uploads/products/5881/onWXNdDo79.jpg"),
 ("Krilcha shashlik", 14000, "https://grillmangal.com/cdn/shop/articles/1D3A8442.jpg?v=1728647798"),
 ],
-
 "xamir": [
 ("Gumma", 12000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVdW8eJN3gOprTo4_MvndyQWR9JClp3TH4RA&s"),
 ("Tuxum barak", 55000, "https://i.ytimg.com/vi/eA1-8TJxC9A/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBpVb7OVhXLBoZvd5ltwLwtQzTtSw"),
@@ -117,7 +108,6 @@ products = {
 ("Kartoshka barak", 55000, "https://i.ytimg.com/vi/tXpnB_cuv_Y/sddefault.jpg"),
 ("Barak asorti", 55000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRug2XuG5ZEnq_JAyKWqnw8C-WuMEdCP8DzxA&s"),
 ],
-
 "suyuq": [
 ("Mastava", 35000, "https://images.gastronom.ru/rB504KSn0k4lnN8dxN9AMw3cseD32nUGUHnAF2yAoJo/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzLzkxMzAzNjZmLWRkNDctNGNmYS05MDkyLTM2MmU4YzBjNmQ2ZC5qcGc.webp"),
 ("Tovuq sho'rva", 20000, "https://zira.uz/wp-content/uploads/2018/01/kurinyy-sup-s-ovoshhami.jpg"),
@@ -132,7 +122,6 @@ products = {
 ("Ko'za sho'rva", 30000, "https://i.ytimg.com/vi/iulx-vq4UlM/sddefault.jpg"),
 ("Chakida pelmen", 35000, "https://img.povar.ru/mobile/9d/9a/5b/5a/pelmeni_v_aerogrile-862792.jpg"),
 ],
-
 "ichimlik": [
 ("Cola 1.5L", 17000, "https://www.shutterstock.com/image-photo/kediri-indonesia-august-07-2024-600nw-2505081653.jpg"),
 ("Fanta 1.5L", 17000, "https://images.uzum.uz/ce8a878v1htd23airm6g/original.jpg"),
@@ -144,7 +133,6 @@ products = {
 ("Ayron", 11000, "https://zira.uz/wp-content/uploads/2018/05/ayran-2.jpg"),
 ("Sharbat", 17000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWeykj4SxiiR9v-d3FCI41zQytSTgSZGu3Zg&s"),
 ],
-
 "aroq": [
 ("Aroq 100gr", 10000, "https://brooklyndrinks.uz/wp-content/uploads/2024/10/i-31.webp"),
 ("Vino", 55000, "https://saludconlupa.com/media/images/red-wine-pouring-from-bottle-glass.width-1920.jpg"),
@@ -153,13 +141,11 @@ products = {
 ("Shampan", 35000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRO9NMFJWySE5us_XZEqfSnYOIrbq1dHPFgjQ&s"),
 ("Chivas", 700000, "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Chivas_image_for_wikipedia.jpg/250px-Chivas_image_for_wikipedia.jpg"),
 ],
-
 "kaynak": [
 ("Uzbekistan 0.5L", 80000, "https://www.cru.ru/upload/resize_cache/ram.watermark/cc7/b90/009/1089122/46907_2.webp"),
 ("Viskiy", 1100000, "https://complexbar.ru/images/blog/img/bokaly-dlya-viskiy-reiring.jpg?_t=1743155716"),
 ("Stareyshina", 600000, "https://butyl.shop/upload/iblock/465/17rgc1pa1gypuapftd55a7sdik6artew/87372c76_c1cc_11e6_8117_0cc47a1741cb_8457571f_f385_11eb_bba0_ac1f6b0311d9.resize1.png"),
 ],
-
 "pivo": [
 ("Tuborg", 17000, "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Groen_Tuborg_bottles.jpg/330px-Groen_Tuborg_bottles.jpg"),
 ("Sarbast", 14000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzMNCh7n-2exyYaPe9EwZuEvUCbCQwrYEC1w&s"),
@@ -169,7 +155,6 @@ products = {
 ("Chips", 20000, "https://www.allrecipes.com/thmb/QO6I4DXnnrXZj1DjcOeRbFSmjk8=/0x512/filters:no_upscale():max_bytes(150000):strip_icc()/73135-homestyle-potato-chips-ddmfs-0348-3x4-hero-c21021303c8849bbb40c1007bfa9af6e.jpg"),
 ("Fistashka", 190000, "https://cdnn21.img.ria.ru/images/07e4/07/02/1573782611_0:136:3157:1912_1920x0_80_0_0_e5af34f7e12e8276027108aa03f79cdf.jpg"),
 ],
-
 "energetik": [
 ("Flesh", 12000, "https://dostavo4ka.uz/upload-file/2021/05/05/493/c07a1652-3982-44aa-8eeb-37cc0820484c.jpg"),
 ("Gorilla", 15000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu15yqVLDIx-r20UttkY8fGWCGf6JhxdYKBA&s"),
@@ -178,7 +163,6 @@ products = {
 ("Moxito", 40000, "https://ir.ozone.ru/s3/multimedia-v/c1000/6679245667.jpg"),
 ("Tarvuz sok", 10000, "https://i.ytimg.com/vi/_dOzuqwi84I/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGH8gICgTMA8=&rs=AOn4CLCfbJYlVkPVxB-uZ4VrtaTNGFAYPA"),
 ],
-
 "podzakaz": [
 ("Lula kabob", 85000, "https://i.ytimg.com/vi/LTG7RzouUWw/sddefault.jpg"),
 ("Manti", 15000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrxlZQON2wGPF1AMuTgYwSFv5R570ENcmvxw&s"),
@@ -190,7 +174,6 @@ products = {
 ("Dimlama", 10000, "https://upload.wikimedia.org/wikipedia/commons/f/fd/Dimlama_%2816425713838%29.jpg"),
 ("Tobaka", 350000, "https://i.ytimg.com/vi/BVpAX57dZPo/mqdefault.jpg"),
 ],
-
 "sheyx": [
 ("Sheyx kabob", 300000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmhZUSZBUQ6q2lswUTUe0QcOqaG4J7r5TP5w&s"),
 ("Sheyx sho'r kabob", 220000, "https://www.allrecipes.com/thmb/nqBDLi0NrrYCm464cTH7jhxv9_I=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/8145753-5f66429f57af4a62aade3adf71dc28d3.jpg"),
@@ -199,7 +182,6 @@ products = {
 ("Sheyx sosiska", 160000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOG1KF2QgniSRsc9VkCkpvbTP1RTLMPCT-Bg&s"),
 ("Sheyx jo'ja", 60000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlW4hPN-_fvAz633jGv0P8G9NOz_RXcUvKaw&s"),
 ],
-
 "garnir": [
 ("Fri", 10000, "https://pizzaking86.ru/wp-content/uploads/2021/12/kartofel-fri.jpg"),
 ("Pyure", 10000, "https://images.gastronom.ru/-BURK2Lb_b72n4Hiz_WQ6r32qBhFjnsgDItDP1-D4vc/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2I3ZDAxMzM3LWUwZjQtNGY3YS1hZDFlLWQzZTQxZjk4YTkxMy5qcGc.webp"),
@@ -208,9 +190,7 @@ products = {
 ("Pomidor", 25000, "https://img.freepik.com/premium-photo/tomato-cut-half-fresh-juicy-tomato-angle-is-straight-isolated_722504-859.jpg"),
 ("Kaymoq", 5000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1tm_gLCzYNmyKZib6dSatuIoJHMhzR_z9Dg&s"),
 ]
-
 }
-
 # ================= MENU =================
 def main_menu():
     return ReplyKeyboardMarkup(
@@ -220,13 +200,11 @@ def main_menu():
         ],
         resize_keyboard=True
     )
-
 # ================= START =================
 @dp.message(CommandStart())
 async def start(message: types.Message, state: FSMContext):
     await message.answer("Ismingizni kiriting:")
     await state.set_state(Register.name)
-
 @dp.message(Register.name)
 async def get_name(message: types.Message, state: FSMContext):
     users[message.from_user.id] = {"name": message.text.title()}
@@ -237,7 +215,6 @@ async def get_name(message: types.Message, state: FSMContext):
     )
     await message.answer("Telefon yuboring:", reply_markup=kb)
     await state.set_state(Register.phone)
-
 @dp.message(Register.phone)
 async def get_phone(message: types.Message, state: FSMContext):
     if not message.contact:
@@ -252,7 +229,6 @@ async def get_phone(message: types.Message, state: FSMContext):
     )
     await message.answer("Lokatsiya yuboring:", reply_markup=kb)
     await state.set_state(Register.location)
-
 @dp.message(Register.location)
 async def get_location(message: types.Message, state: FSMContext):
     if not message.location:
@@ -262,7 +238,6 @@ async def get_location(message: types.Message, state: FSMContext):
     users[message.from_user.id]["location"] = message.location
     await message.answer("✅ Ro‘yxatdan o‘tdingiz!", reply_markup=main_menu())
     await state.clear()
-
 # ================= CATEGORY =================
 @dp.message(F.text == "🍔 Buyurtma berish")
 async def category(message: types.Message):
@@ -282,13 +257,11 @@ async def category(message: types.Message):
         [InlineKeyboardButton(text="🍟 Garnir", callback_data="cat_garnir")],
     ])
     await message.answer("👇 Tanlang:", reply_markup=kb)
-
 # ================= PRODUCTS =================
 @dp.callback_query(F.data.startswith("cat_"))
 async def show_products(callback: types.CallbackQuery):
     await callback.answer()
     cat = callback.data.split("_")[1]
-
     for i, (name, price, img) in enumerate(products[cat]):
         kb = InlineKeyboardMarkup(
             inline_keyboard=[
@@ -300,7 +273,6 @@ async def show_products(callback: types.CallbackQuery):
             caption=f"{name}\n💰 {price}",
             reply_markup=kb
         )
-
 # ================= ADD =================
 @dp.callback_query(F.data.startswith("add_"))
 async def add(callback: types.CallbackQuery):
@@ -309,7 +281,6 @@ async def add(callback: types.CallbackQuery):
     _, cat, i = callback.data.split("_")
     item = products[cat][int(i)]
     cart.setdefault(user_id, []).append(item)
-
 # ================= CART =================
 @dp.message(F.text == "🛒 Savatcha")
 async def show_cart(message: types.Message):
@@ -317,50 +288,35 @@ async def show_cart(message: types.Message):
     if not items:
         await message.answer("Bo‘sh ❌")
         return
-
     text = ""
     total = 0
-
     for name, price, _ in items:
         text += f"{name} - {price}\n"
         total += price
-
     text += f"\nJami: {total}"
-
     kb = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="📦 Buyurtma berish", callback_data="order")]
     ])
-
     await message.answer(text, reply_markup=kb)
-
 # ================= ORDER =================
 @dp.callback_query(F.data == "order")
 async def order(callback: types.CallbackQuery):
     await callback.answer()
-
     user = users[callback.from_user.id]
     items = cart.get(callback.from_user.id, [])
-
     text = f"{user['name']}\n{user['phone']}\n\n"
     total = 0
-
     for name, price, _ in items:
         text += f"{name} - {price}\n"
         total += price
-
     text += f"\nJami: {total}"
-
     await bot.send_message(ADMIN_ID, text)
-
     loc = user['location']
     await bot.send_location(ADMIN_ID, loc.latitude, loc.longitude)
-
     cart[callback.from_user.id] = []
     await callback.message.answer("✅ Yuborildi")
-
 # ================= RUN =================
 async def main():
     await dp.start_polling(bot)
-
 if __name__ == "__main__":
     asyncio.run(main())
