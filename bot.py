@@ -247,7 +247,7 @@ async def category(message: types.Message):
         [InlineKeyboardButton(text="🔥 Mangal", callback_data="cat_mangal")],
         [InlineKeyboardButton(text="🥟 Xamir", callback_data="cat_xamir")],
         [InlineKeyboardButton(text="🍲 Suyuq", callback_data="cat_suyuq")],
-        [InlineKeyboardButton(text="🥤 Ichimlik", callback_data="cat_ichimlik")],
+       InlineKeyboardButton(text="🥤 Ichimlik", callback_data="cat:ichimlik")],
         [InlineKeyboardButton(text="🍷 Aroq", callback_data="cat_aroq")],
         [InlineKeyboardButton(text="🥃 Kaynak", callback_data="cat_kaynak")],
         [InlineKeyboardButton(text="🍺 Pivo", callback_data="cat_pivo")],
@@ -258,10 +258,10 @@ async def category(message: types.Message):
     ])
     await message.answer("👇 Tanlang:", reply_markup=kb)
 # ================= PRODUCTS =================
-@dp.callback_query(F.data.startswith("cat_"))
+@dp.callback_query(F.data.startswith("cat:"))
 async def show_products(callback: types.CallbackQuery):
     await callback.answer()
-    cat = callback.data.split("_")[1]
+    cat = callback.data.split(":")[1]
     for i, (name, price, img) in enumerate(products[cat]):
         kb = InlineKeyboardMarkup(
             inline_keyboard=[
