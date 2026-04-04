@@ -9,8 +9,8 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 
-TOKEN = "8046143748:AAFXa822qHNKrJVs-LIVarwA0XQTaLLhn9w"
-ADMIN_ID = 5825744781
+TOKEN = "TOKENINGNI_QOY"
+ADMIN_ID = 123456789
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
@@ -229,7 +229,8 @@ async def start(message: types.Message, state: FSMContext):
 
 @dp.message(Register.name)
 async def get_name(message: types.Message, state: FSMContext):
-    users[message.from_user.id] = {"name": message.text}
+    users[message.from_user.id] = {"name": message.text.title()}
+    
     kb = ReplyKeyboardMarkup(
         keyboard=[[KeyboardButton(text="📞 Raqam yuborish", request_contact=True)]],
         resize_keyboard=True
@@ -239,7 +240,12 @@ async def get_name(message: types.Message, state: FSMContext):
 
 @dp.message(Register.phone)
 async def get_phone(message: types.Message, state: FSMContext):
+    if not message.contact:
+        await message.answer("📞 Tugma orqali yubor!")
+        return
+        
     users[message.from_user.id]["phone"] = message.contact.phone_number
+    
     kb = ReplyKeyboardMarkup(
         keyboard=[[KeyboardButton(text="📍 Lokatsiya", request_location=True)]],
         resize_keyboard=True
@@ -249,8 +255,12 @@ async def get_phone(message: types.Message, state: FSMContext):
 
 @dp.message(Register.location)
 async def get_location(message: types.Message, state: FSMContext):
+    if not message.location:
+        await message.answer("📍 Tugma orqali yubor!")
+        return
+        
     users[message.from_user.id]["location"] = message.location
-    await message.answer("Ro‘yxatdan o‘tdingiz!", reply_markup=main_menu())
+    await message.answer("✅ Ro‘yxatdan o‘tdingiz!", reply_markup=main_menu())
     await state.clear()
 
 # ================= CATEGORY =================
@@ -263,7 +273,7 @@ async def category(message: types.Message):
         [InlineKeyboardButton(text="🥟 Xamir", callback_data="cat_xamir")],
         [InlineKeyboardButton(text="🍲 Suyuq", callback_data="cat_suyuq")],
         [InlineKeyboardButton(text="🥤 Ichimlik", callback_data="cat_ichimlik")],
-        [InlineKeyboardButton(text="🍷 Aroq", callback_data="cat_araq")],
+        [InlineKeyboardButton(text="🍷 Aroq", callback_data="cat_aroq")],
         [InlineKeyboardButton(text="🥃 Kaynak", callback_data="cat_kaynak")],
         [InlineKeyboardButton(text="🍺 Pivo", callback_data="cat_pivo")],
         [InlineKeyboardButton(text="⚡ Energetik", callback_data="cat_energetik")],
@@ -271,12 +281,14 @@ async def category(message: types.Message):
         [InlineKeyboardButton(text="👑 Sheyx", callback_data="cat_sheyx")],
         [InlineKeyboardButton(text="🍟 Garnir", callback_data="cat_garnir")],
     ])
-    await message.answer("Kategoriya tanlang:", reply_markup=kb)
+    await message.answer("👇 Tanlang:", reply_markup=kb)
 
 # ================= PRODUCTS =================
 @dp.callback_query(F.data.startswith("cat_"))
 async def show_products(callback: types.CallbackQuery):
+    await callback.answer()
     cat = callback.data.split("_")[1]
+
     for i, (name, price, img) in enumerate(products[cat]):
         kb = InlineKeyboardMarkup(
             inline_keyboard=[
@@ -285,37 +297,35 @@ async def show_products(callback: types.CallbackQuery):
         )
         await callback.message.answer_photo(
             photo=img,
-            caption=f"{name} - {price} so‘m",
+            caption=f"{name}\n💰 {price}",
             reply_markup=kb
         )
 
 # ================= ADD =================
 @dp.callback_query(F.data.startswith("add_"))
 async def add(callback: types.CallbackQuery):
+    await callback.answer("Qo‘shildi ✅")
     user_id = callback.from_user.id
     _, cat, i = callback.data.split("_")
     item = products[cat][int(i)]
     cart.setdefault(user_id, []).append(item)
-    await callback.answer("Qo‘shildi ✅")
 
 # ================= CART =================
 @dp.message(F.text == "🛒 Savatcha")
 async def show_cart(message: types.Message):
-    user_id = message.from_user.id
-    items = cart.get(user_id, [])
-
+    items = cart.get(message.from_user.id, [])
     if not items:
-        await message.answer("Savatcha bo‘sh ❌")
+        await message.answer("Bo‘sh ❌")
         return
 
-    text = "🛒 Savatcha:\n\n"
+    text = ""
     total = 0
 
     for name, price, _ in items:
         text += f"{name} - {price}\n"
         total += price
 
-    text += f"\n💰 Jami: {total}\n\nNon, choy, sous bilan yetkazamiz 😎"
+    text += f"\nJami: {total}"
 
     kb = InlineKeyboardMarkup(inline_keyboard=[
         [InlineKeyboardButton(text="📦 Buyurtma berish", callback_data="order")]
@@ -325,18 +335,15 @@ async def show_cart(message: types.Message):
 
 # ================= ORDER =================
 @dp.callback_query(F.data == "order")
-async def send_order(callback: types.CallbackQuery):
-    user_id = callback.from_user.id
-    user = users.get(user_id)
-    items = cart.get(user_id, [])
+async def order(callback: types.CallbackQuery):
+    await callback.answer()
 
-    if not items:
-        await callback.answer("Savatcha bo‘sh ❌")
-        return
+    user = users[callback.from_user.id]
+    items = cart.get(callback.from_user.id, [])
 
-    text = f"Yangi buyurtma\n\n{user['name']}\n{user['phone']}\n\n"
-
+    text = f"{user['name']}\n{user['phone']}\n\n"
     total = 0
+
     for name, price, _ in items:
         text += f"{name} - {price}\n"
         total += price
@@ -348,9 +355,8 @@ async def send_order(callback: types.CallbackQuery):
     loc = user['location']
     await bot.send_location(ADMIN_ID, loc.latitude, loc.longitude)
 
-    cart[user_id] = []
-
-    await callback.message.answer("Buyurtma yuborildi ✅")
+    cart[callback.from_user.id] = []
+    await callback.message.answer("✅ Yuborildi")
 
 # ================= RUN =================
 async def main():
