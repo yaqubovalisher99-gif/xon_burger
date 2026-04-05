@@ -258,14 +258,20 @@ async def category(message: types.Message):
     ])
     await message.answer("👇 Tanlang:", reply_markup=kb)
 # ================= PRODUCTS =================
+# ================= PRODUCTS =================
 @dp.callback_query(F.data.startswith("cat:"))
 async def show_products(callback: types.CallbackQuery):
     await callback.answer()
     cat = callback.data.split(":")[1]
+
+    if cat not in products:
+        await callback.message.answer("❌ Topilmadi")
+        return
+
     for i, (name, price, img) in enumerate(products[cat]):
         kb = InlineKeyboardMarkup(
             inline_keyboard=[
-                [InlineKeyboardButton(text="🛒 Qo‘shish", callback_data=f"add_{cat}_{i}")]
+                [InlineKeyboardButton(text="🛒 Qo‘shish", callback_data=f"add|{cat}|{i}")]
             ]
         )
         await callback.message.answer_photo(
@@ -273,6 +279,84 @@ async def show_products(callback: types.CallbackQuery):
             caption=f"{name}\n💰 {price}",
             reply_markup=kb
         )
+
+# ================= ADD =================
+@dp.callback_query(F.data.startswith("add|"))
+async def add(callback: types.CallbackQuery):
+    await callback.answer("Qo‘shildi ✅")
+
+    user_id = callback.from_user.id
+    _, cat, i = callback.data.split("|")
+
+    if cat not in products:
+        return
+
+    item = products[cat][int(i)]
+    cart.setdefault(user_id, []).append(item)
+
+# ================= CART =================
+@dp.message(F.text == "🛒 Savatcha")
+async def show_cart(message: types.Message):
+    user_id = message.from_user.id
+    items = cart.get(user_id, [])
+
+    if not items:
+        await message.answer("Bo‘sh ❌")
+        return
+
+    text = "🛒 Savatcha:\n\n"
+    total = 0
+
+    for name, price, _ in items:
+        text += f"{name} - {price}\n"
+        total += price
+
+    text += f"\n💰 Jami: {total}"
+
+    kb = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [InlineKeyboardButton(text="📦 Buyurtma berish", callback_data="order")]
+        ]
+    )
+
+    await message.answer(text, reply_markup=kb)
+
+# ================= ORDER =================
+@dp.callback_query(F.data == "order")
+async def order(callback: types.CallbackQuery):
+    await callback.answer()
+
+    user_id = callback.from_user.id
+
+    if user_id not in users:
+        await callback.message.answer("❌ Avval /start bosing")
+        return
+
+    items = cart.get(user_id, [])
+
+    if not items:
+        await callback.message.answer("❌ Savatcha bo‘sh")
+        return
+
+    user = users[user_id]
+
+    text = f"🧾 BUYURTMA\n\n👤 {user['name']}\n📞 {user['phone']}\n\n"
+
+    total = 0
+    for name, price, _ in items:
+        text += f"{name} - {price}\n"
+        total += price
+
+    text += f"\n💰 Jami: {total}"
+
+    await bot.send_message(ADMIN_ID, text)
+
+    loc = user['location']
+    await bot.send_location(ADMIN_ID, loc.latitude, loc.longitude)
+
+    cart[user_id] = []
+
+    await callback.message.answer("✅ Buyurtma yuborildi!")
 # ================= ADD =================
 @dp.callback_query(F.data.startswith("add_"))
 async def add(callback: types.CallbackQuery):
