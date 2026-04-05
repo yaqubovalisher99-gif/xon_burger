@@ -128,7 +128,7 @@ products = {
 ("Chakida pelmen", 35000, "https://img.povar.ru/mobile/9d/9a/5b/5a/pelmeni_v_aerogrile-862792.jpg"),
 ],
 "ichimlik": [
-("Cola 1.5L", 17000, "https://www.shutterstock.com/image-photo/kediri-indonesia-august-07-2024-600nw-2505081653.jpg"),
+("Cola 1.5L", 17000, "https://images.uzum.uz/cia493tenntd8rfc2s40/original.jpg"),
 ("Fanta 1.5L", 17000, "https://images.uzum.uz/ce8a878v1htd23airm6g/original.jpg"),
 ("Pepsi 1.5L", 20000, "https://images.uzum.uz/d3fsp1oop562uss33s9g/original.jpg"),
 ("Chortoq", 8000, "https://cdn.bigmart.uz/file/hub/file/2025/4/17/2vrJyqENkzbgmnxaTdENHjxz44v.jpg"),
