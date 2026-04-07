@@ -10,7 +10,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 
 TOKEN = "7846933035:AAFNOW_BXt2oaVVDnE3yf1TqlAkXVxt6KJ0"
-ADMIN_ID = 5421038438
+ADMIN_ID = 5825744781
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
