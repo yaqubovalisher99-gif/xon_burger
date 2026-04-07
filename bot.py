@@ -380,7 +380,7 @@ async def order(callback: types.CallbackQuery):
 
     text += f"{'='*30}\n"
     text += f"💰 JAMI: {total} so'm\n"
-    text += f"🚚 Non, choy, dastavka hizmati bilan yetkazib beramiz!\n"
+    text += f"🚚 Dastavka hizmati mavjud!\n"
 
     await bot.send_message(ADMIN_ID, text)
 
