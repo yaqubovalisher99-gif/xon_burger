@@ -367,6 +367,7 @@ async def order(callback: types.CallbackQuery):
         return
 
     user = users[user_id]
+
     text = f"🧾 YANGI BUYURTMA\n\n"
     text += f"👤 Ism: {user['name']}\n"
     text += f"📞 Tel: {user['phone']}\n\n"
@@ -382,11 +383,12 @@ async def order(callback: types.CallbackQuery):
     text += f"💰 JAMI: {total} so'm\n"
     text += f"🚚 Dastavka hizmati mavjud!\n"
 
-   loc = user['location']
+    loc = user['location']
 
-for admin in ADMIN_IDS:
-    await bot.send_message(admin, text)
-    await bot.send_location(admin, loc.latitude, loc.longitude)
+    for admin in ADMIN_IDS:
+        await bot.send_message(admin, text)
+        await bot.send_location(admin, loc.latitude, loc.longitude)
+
     cart[user_id] = []
 
     await callback.message.answer("✅ Buyurtma yuborildi! Tez orada siz bilan bog'lanamiz.")
