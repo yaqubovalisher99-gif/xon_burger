@@ -10,7 +10,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 
 TOKEN = "7846933035:AAFNOW_BXt2oaVVDnE3yf1TqlAkXVxt6KJ0"
-ADMIN_ID = 5825744781
+ADMIN_ID = 5421038438
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
@@ -320,7 +320,7 @@ async def show_cart(message: types.Message):
     text += f"\n{'='*30}\n"
     text += f"💰 JAMI: {total} so'm\n"
     text += f"{'='*30}\n\n"
-    text += "🚚 Non, choy, dastavka hizmati bilan yetkazib beramiz!\n"
+    text += "🚚 Dastavka hizmati mavjud!\n"
 
     kb = InlineKeyboardMarkup(
         inline_keyboard=[
