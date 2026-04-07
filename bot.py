@@ -10,7 +10,7 @@ from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 
 TOKEN = "7846933035:AAFNOW_BXt2oaVVDnE3yf1TqlAkXVxt6KJ0"
-ADMIN_ID = 5421038438
+ADMIN_IDS = [5421038438, 8428945326,]
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(storage=MemoryStorage())
@@ -382,11 +382,11 @@ async def order(callback: types.CallbackQuery):
     text += f"💰 JAMI: {total} so'm\n"
     text += f"🚚 Dastavka hizmati mavjud!\n"
 
-    await bot.send_message(ADMIN_ID, text)
+   loc = user['location']
 
-    loc = user['location']
-    await bot.send_location(ADMIN_ID, loc.latitude, loc.longitude)
-
+for admin in ADMIN_IDS:
+    await bot.send_message(admin, text)
+    await bot.send_location(admin, loc.latitude, loc.longitude)
     cart[user_id] = []
 
     await callback.message.answer("✅ Buyurtma yuborildi! Tez orada siz bilan bog'lanamiz.")
