@@ -208,10 +208,13 @@ def main_menu():
     )
 
 # ================= START =================
+# @dp.message(CommandStart())
+# async def start(message: types.Message, state: FSMContext):
+#     await message.answer("Ismingizni kiriting:")
+#     await state.set_state(Register.name)
 @dp.message(CommandStart())
-async def start(message: types.Message, state: FSMContext):
-    await message.answer("Ismingizni kiriting:")
-    await state.set_state(Register.name)
+async def start(message: types.Message):
+    await message.answer("⛔️ Bot vaqtincha ish faoliyatida emas")
 
 @dp.message(Register.name)
 async def get_name(message: types.Message, state: FSMContext):
