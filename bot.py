@@ -435,7 +435,7 @@ async def order(callback: types.CallbackQuery):
 
     text += f"{'='*30}\n"
     text += f"💰 JAMI: {total} so'm\n"
-    text += f"🚚 Dastavka hizmati mavjud!\n"
+    text += f"🚚 Dastavka hizmati mavjud, Katta idish 5000,Kichik idish 3000!\n"
 
     loc = user['location']
 
