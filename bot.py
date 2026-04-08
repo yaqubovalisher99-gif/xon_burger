@@ -372,7 +372,7 @@ async def show_cart(message: types.Message):
     text += f"\n{'='*30}\n"
     text += f"💰 JAMI: {total} so'm\n"
     text += f"{'='*30}\n\n"
-    text += "🚚 Dastavka hizmati mavjud!\n"
+    text += "🚚 Dastavka hizmati mavjud,Katta idish 5000,Kichik idish 3000!\n"
 
     kb = InlineKeyboardMarkup(
         inline_keyboard=[
