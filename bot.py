@@ -173,7 +173,7 @@ products = {
 ("Achchiq chuchuk", 25000, ""),
 ("Svejiy", 25000, ""),
 ("Chakki", 5000, ""),
-("Limon", 15300, "),
+("Limon", 15300, ""),
 ("Salonniy asorti", 25000, ""),
 ("Ovoshshiy asorti", 40000, ""),
 ("Sous 1l", 30000, ""),
