@@ -9,7 +9,7 @@ from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import State, StatesGroup
 from aiogram.fsm.storage.memory import MemoryStorage
 
-TOKEN = "7846933035:AAFNOW_BXt2oaVVDnE3yf1TqlAkXVxt6KJ0"
+TOKEN = "7846933035:AAE5wbTz7cDcmEv1k8BVkc2gYpfAM5oODLM"
 ADMIN_IDS = [5421038438, 8428945326,5825744781,]
 
 bot = Bot(token=TOKEN)
@@ -203,7 +203,7 @@ products = {
 ("Fetaksa 100gr", 25000, ""),
 ("Baqlajan rulet", 40000, ""),
 ],
-"Xalodniy zakuska":[
+"Xalodniy_zakuska":[
 ("Myaskaya narezka bolshoy", 100000, "https://i.ytimg.com/vi/JlgAu6FtwDY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCvMCnrIgt4mGfM9cQTUpIFOQU9kg"),
 ("Dil xalodniy", 300000, "https://c8.alamy.com/comp/2D7EY8B/cold-appetizer-of-beef-tongue-with-fresh-salad-close-up-in-a-plate-on-the-table-horizontal-2D7EY8B.jpg"),
 ("Anjir", 25000, "https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/65cb2a87e030e140c73f8bad/anjir-420x420.jpeg"),
@@ -303,6 +303,8 @@ async def category(message: types.Message):
         [InlineKeyboardButton(text="📦 Pod zakaz", callback_data="cat:podzakaz")],
         [InlineKeyboardButton(text="👑 Sheyx", callback_data="cat:sheyx")],
         [InlineKeyboardButton(text="🍟 Garnir", callback_data="cat:garnir")],
+        [InlineKeyboardButton(text="🥗 Salatlar", callback_data="cat:Salatlar")],
+        [InlineKeyboardButton(text="🥶 Xalodniy zakuska", callback_data="cat:Xalodniy_zakuska")],
     ])
     await message.answer("👇 Tanlang:", reply_markup=kb)
 
@@ -399,6 +401,8 @@ async def back_menu(callback: types.CallbackQuery):
         [InlineKeyboardButton(text="📦 Pod zakaz", callback_data="cat:podzakaz")],
         [InlineKeyboardButton(text="👑 Sheyx", callback_data="cat:sheyx")],
         [InlineKeyboardButton(text="🍟 Garnir", callback_data="cat:garnir")],
+        [InlineKeyboardButton(text="🥗 Salatlar", callback_data="cat:Salatlar")],
+        [InlineKeyboardButton(text="🥶 Xalodniy zakuska", callback_data="cat:Xalodniy_zakuska")],
     ]))
 
 # ================= ORDER =================
