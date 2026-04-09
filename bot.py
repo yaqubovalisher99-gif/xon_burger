@@ -31,7 +31,7 @@ products = {
 ("Tobaqa bruller saryogo", 85000, ""),
 ("Saryogo juja", 60000, "https://i.ytimg.com/vi/1Cm5M3nGtwc/sddefault.jpg"),
 ("Shor kabob pomidor sousli", 230000, "https://www.russianfood.com/dycontent/images_upl/541/big_540774.jpg"),
-("Shor kabob pomidor sousli 0.5kg", 1150000, "https://www.russianfood.com/dycontent/images_upl/541/big_540774.jpg"),
+("Shor kabob pomidor sousli 0.5kg", 115000, "https://www.russianfood.com/dycontent/images_upl/541/big_540774.jpg"),
 ("Shor kabob 1kg", 220000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd3ajOip83XtfTZhTpq-4tEpoo21MmtI_1Hg&s"),
 ("Shor kabob 0.5kg", 110000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd3ajOip83XtfTZhTpq-4tEpoo21MmtI_1Hg&s"),
 ("Tishonka 1kg", 190000, "https://m.media-amazon.com/images/I/71UAGO-h9fL._AC_UF894,1000_QL80_.jpg"),
@@ -224,6 +224,16 @@ products = {
 ("Ananas", 85000, "https://api.lochin.uz/media/file/image/2020-12/469969e0-5ced-4176-9c1d-fa48e59515a6.jpg.500x500_q85_crop-scale.jpg"),
 ("Shaptoli 1kg", 40000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRhp6LUf9_jVgWe1flKFfNMSy3DtNR1cWWQw&s"),
 ],
+"Non":[
+("Non osrti", 14000, "https://devel.prom.uz/upload/category_logos/d3/38/d33854752c9a70e7cb669546fa5667a4.png"),
+("Kora non", 7000, "https://cdn.beta.qalampir.uz/uploads/7m/f_Twm4kc9QYEQ4y41JhoR36ZFHzO4BX1.jpg"),
+("Chorak", 10000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfg7ZDwDDLWUezi205udX6YnQ6r5oInOuFSg&s"),
+("Patir", 15000, "https://i.ytimg.com/vi/CdO8hgH3ejw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLC3rOwIbesvYGLZGpXMqLkkj2F49Q"),
+("Buxanka", 6000, "https://zamin.uz/uploads/posts/2019-03/1552395080_lestjsm15i3enowj9-gehtay7ztwfoiw.jpg"),
+("Kora chorak non", 9000, "https://i.ytimg.com/vi/Pg6uqZf19qg/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCcp5HCZvUy0UqEnihsFHII9FtGWg"),
+
+
+],
 "garnir": [
 ("Fri", 10000, "https://pizzaking86.ru/wp-content/uploads/2021/12/kartofel-fri.jpg"),
 ("Pyure", 10000, "https://images.gastronom.ru/-BURK2Lb_b72n4Hiz_WQ6r32qBhFjnsgDItDP1-D4vc/pr:recipe-cover-image/g:ce/rs:auto:0:0:0/L2Ntcy9hbGwtaW1hZ2VzL2I3ZDAxMzM3LWUwZjQtNGY3YS1hZDFlLWQzZTQxZjk4YTkxMy5qcGc.webp"),
@@ -302,6 +312,7 @@ async def category(message: types.Message):
         [InlineKeyboardButton(text="🍟 Garnir", callback_data="cat:garnir")],
         [InlineKeyboardButton(text="🥗 Salatlar", callback_data="cat:Salatlar")],
         [InlineKeyboardButton(text="🥶 Xalodniy zakuska", callback_data="cat:Xalodniy_zakuska")],
+        [InlineKeyboardButton(text="🍞 Non", callback_data="cat:Non")],
     ])
     await message.answer("👇 Tanlang:", reply_markup=kb)
 
@@ -400,6 +411,7 @@ async def back_menu(callback: types.CallbackQuery):
         [InlineKeyboardButton(text="🍟 Garnir", callback_data="cat:garnir")],
         [InlineKeyboardButton(text="🥗 Salatlar", callback_data="cat:Salatlar")],
         [InlineKeyboardButton(text="🥶 Xalodniy zakuska", callback_data="cat:Xalodniy_zakuska")],
+        [InlineKeyboardButton(text="🍞 Non", callback_data="cat:Non")],
     ]))
 
 # ================= ORDER =================
