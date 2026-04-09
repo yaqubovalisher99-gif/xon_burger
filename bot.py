@@ -204,7 +204,7 @@ products = {
 ("Baqlajan rulet", 40000, ""),
 ],
 "Xalodniy_zakuska":[
-("Myaskaya narezka bolshoy", 100000, "https://i.ytimg.com/vi/JlgAu6FtwDY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCvMCnrIgt4mGfM9cQTUpIFOQU9kg"),
+("Mesnoy asrti", 100000, "https://i.ytimg.com/vi/JlgAu6FtwDY/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCvMCnrIgt4mGfM9cQTUpIFOQU9kg"),
 ("Dil xalodniy", 300000, "https://c8.alamy.com/comp/2D7EY8B/cold-appetizer-of-beef-tongue-with-fresh-salad-close-up-in-a-plate-on-the-table-horizontal-2D7EY8B.jpg"),
 ("Anjir", 25000, "https://www.mystore.in/s/62ea2c599d1398fa16dbae0a/65cb2a87e030e140c73f8bad/anjir-420x420.jpeg"),
 ("Qovun", 20000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXWjsMrBSJtQyJo2Nf-w7bBewBxyA5C7KVhQ&s"),
@@ -222,9 +222,6 @@ products = {
 ("Apelsin", 35000, "https://kaufland.media.schwarz/is/image/schwarz/citrus-fruit-orange-detail-1?JGstbGVnYWN5LW9uc2l0ZS00JA=="),
 ("Olma", 35000, "https://zamin.uz/uploads/posts/2025-03/640336f4e4_olma-apple-yabloko.webp"),
 ("Ananas", 85000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlW4hPN-_fvAz633jGv0P8G9NOz_RXcUvKaw&s"),
-("Meva osorti kovunli", 90000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlW4hPN-_fvAz633jGv0P8G9NOz_RXcUvKaw&s"),
-("Meva osorti ananasli", 100000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlW4hPN-_fvAz633jGv0P8G9NOz_RXcUvKaw&s"),
-("Ananas", 50000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbzWGZnk98qZqe4ZJ9_e14uvh6MK7X3VXcvg&s"),
 ("Shaptoli 1kg", 40000, "https://static.xabar.uz/crop/1/8/720_460_95_1884834325.jpg"),
 ],
 "garnir": [
