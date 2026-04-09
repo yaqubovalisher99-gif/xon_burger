@@ -46,7 +46,7 @@ products = {
 ("Say kabob 1porsi", 95000, "https://dyj6gt4964deb.cloudfront.net/images/crop-9a5b59b6-9776-4889-a443-2c08032bb7f3.jpeg"),
 ("Medalion", 280000, "https://6666beef.com/cdn/shop/files/Tenderloin-Medallions_0002_Cooked-02-web.jpg?v=1730587632&width=990"),
 ("Mesniy xoroz chehambel", 350000, ""),
-("Kabob asorti 1kg", 250000, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx2E2d6VhRpjuJp44VWTTSLTO402Gkf4tELg&s"),
+("Kabob asorti 1kg", 250000, ""),
 ("Juli 1 porsi", 100000, ""),
 ("Bogir 1kg", 180000, "https://i.ytimg.com/vi/zDbs2CbIL4w/sddefault.jpg"),
 ],
